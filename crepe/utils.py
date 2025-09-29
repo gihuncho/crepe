@@ -3,7 +3,7 @@ from transformers import AutoTokenizer
 from .models import BertForCategoryErrorRegression
 
 def load_model_and_tokenizer(
-    model_name_or_path="jogihood/crepe-biomedbert",
+    model_name_or_path="gihuncho/crepe-biomedbert",
     cache_dir=None
 ):
     tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, cache_dir=cache_dir)
