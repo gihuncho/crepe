@@ -25,7 +25,7 @@ pip install "torch>=2.1" "transformers>=4.41"
 
 This repo is a small Python package; you can import it directly from the project root (editable install optional).
 
-> The default checkpoint is hosted on the Hugging Face Hub (`jogihood/crepe-biomedbert`) and will be downloaded on first use. If your environment has restricted internet access, pass a local `cache_dir` or model path (see below).
+> The default checkpoint is hosted on the Hugging Face Hub (`gihuncho/crepe-biomedbert`) and will be downloaded on first use. If your environment has restricted internet access, pass a local `cache_dir` or model path (see below).
 
 
 
@@ -40,7 +40,7 @@ cache_dir = "your/path/to/cache/dir"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# 1) Load model & tokenizer (defaults to jogihood/crepe-biomedbert)
+# 1) Load model & tokenizer (defaults to gihuncho/crepe-biomedbert)
 model, tokenizer = crepe.load_model_and_tokenizer(cache_dir=cache_dir)
 model.to(device).eval()
 
@@ -78,7 +78,7 @@ print(result)
 
 ```python
 # crepe.__init__.py
-load_model_and_tokenizer(model_name_or_path="jogihood/crepe-biomedbert", cache_dir=None)
+load_model_and_tokenizer(model_name_or_path="gihuncho/crepe-biomedbert", cache_dir=None)
 # -> (model, tokenizer)
 
 compute(model, tokenizer, reference_report, candidate_report, device="cpu")
