@@ -1,185 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Primary Meta Tags -->
-    <meta
-      name="title"
-      content="CREPE: Rapid Chest X-ray Report Evaluation by Predicting Multi-category Error Counts - Cho, Jang, Ko, Baek, Park"
-    />
-    <meta
-      name="description"
-      content="CREPE is a fast, interpretable metric for radiology report generation that predicts error counts across six clinical categories using a domain-specific BERT with multi-head regression, achieving strong correlation with radiologist judgments and ~280× faster inference than LLM-based methods."
-    />
-    <meta
-      name="keywords"
-      content="radiology report evaluation, chest X-ray, medical imaging, NLP, BERT, regression, error counts, clinical NLP, evaluation metrics"
-    />
-    <meta
-      name="author"
-      content="Gihun Cho, Seunghyun Jang, Hanbin Ko, Inhyeok Baek, Chang Min Park"
-    />
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article" />
-    <meta
-      property="og:site_name"
-      content="Innovative Radiology AI Laboratory (iRAIL)"
-    />
-    <meta
-      property="og:title"
-      content="CREPE: Rapid Chest X-ray Report Evaluation by Predicting Multi-category Error Counts"
-    />
-    <meta
-      property="og:description"
-      content="Fast, interpretable chest X-ray report evaluation via multi-category error count prediction with a domain-specific BERT."
-    />
-    <meta property="og:url" content="https://gihuncho.github.io/crepe" />
-    <meta
-      property="og:image"
-      content="https://gihuncho.github.io/crepe/static/images/overview_new.png"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="CREPE - Research Preview" />
-    <meta
-      property="article:published_time"
-      content="2024-01-01T00:00:00.000Z"
-    />
-    <meta property="article:author" content="Gihun Cho" />
-    <meta property="article:section" content="Research" />
-    <meta property="article:tag" content="radiology" />
-    <meta property="article:tag" content="NLP" />
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="CREPE: Rapid Chest X-ray Report Evaluation by Predicting Multi-category Error Counts" />
+  <meta name="description"
+    content="CREPE is a fast, interpretable metric for radiology report generation that predicts error counts across six clinical categories using a domain-specific BERT with multi-head regression, achieving strong correlation with radiologist judgments and ~280× faster inference than LLM-based methods." />
+  <meta name="keywords"
+    content="radiology report evaluation, chest X-ray, medical imaging, NLP, BERT, regression, error counts, clinical NLP, evaluation metrics" />
+  <meta name="author" content="Gihun Cho, Seunghyun Jang, Hanbin Ko, Inhyeok Baek, Chang Min Park" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <!-- TODO: Replace with your lab/institution Twitter handle -->
-    <meta name="twitter:site" content="@irailsnu" />
-    <!-- TODO: Replace with first author's Twitter handle -->
-    <meta name="twitter:creator" content="@gihun_cho" />
-    <!-- TODO: Same as paper title above -->
-    <meta
-      name="twitter:title"
-      content="CREPE: Rapid Chest X-ray Report Evaluation by Predicting Multi-category Error Counts"
-    />
-    <!-- TODO: Same as description above -->
-    <meta
-      name="twitter:description"
-      content="CREPE is a fast, interpretable metric for radiology report generation that predicts error counts across six clinical categories using a domain-specific BERT with multi-head regression, achieving strong correlation with radiologist judgments and ~280× faster inference than LLM-based methods."
-    />
-    <!-- TODO: Same as social preview image above -->
-    <meta
-      name="twitter:image"
-      content="https://gihuncho.github.io/crepe/static/images/overview_new.png"
-    />
-    <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Innovative Radiology AI Laboratory (iRAIL)" />
+  <meta property="og:title"
+    content="CREPE: Rapid Chest X-ray Report Evaluation by Predicting Multi-category Error Counts" />
+  <meta property="og:description"
+    content="Fast, interpretable chest X-ray report evaluation via multi-category error count prediction with a domain-specific BERT." />
+  <meta property="og:url" content="https://gihuncho.github.io/crepe" />
+  <meta property="og:image" content="https://gihuncho.github.io/crepe/static/images/overview_new.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="CREPE - Research Preview" />
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z" />
+  <meta property="article:author" content="Gihun Cho" />
+  <meta property="article:section" content="Research" />
+  <meta property="article:tag" content="radiology" />
+  <meta property="article:tag" content="NLP" />
 
-    <!-- Academic/Research Specific -->
-    <meta
-      name="citation_title"
-      content="CREPE: Rapid Chest X-ray Report Evaluation by Predicting Multi-category Error Counts"
-    />
-    <meta name="citation_author" content="Cho, Gihun" />
-    <meta name="citation_author" content="Jang, Seunghyun" />
-    <meta name="citation_author" content="Ko, Hanbin" />
-    <meta name="citation_author" content="Baek, Inhyeok" />
-    <meta name="citation_author" content="Park, Chang Min" />
-    <meta name="citation_publication_date" content="2025" />
-    <meta name="citation_conference_title" content="EMNLP 2025" />
-    <meta
-      name="citation_pdf_url"
-      content="https://github.com/gihuncho/crepe/blob/main/EMNLP2025_CREPE.pdf"
-    />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- TODO: Replace with your lab/institution Twitter handle -->
+  <meta name="twitter:site" content="@irailsnu" />
+  <!-- TODO: Replace with first author's Twitter handle -->
+  <meta name="twitter:creator" content="@gihun_cho" />
+  <!-- TODO: Same as paper title above -->
+  <meta name="twitter:title"
+    content="CREPE: Rapid Chest X-ray Report Evaluation by Predicting Multi-category Error Counts" />
+  <!-- TODO: Same as description above -->
+  <meta name="twitter:description"
+    content="CREPE is a fast, interpretable metric for radiology report generation that predicts error counts across six clinical categories using a domain-specific BERT with multi-head regression, achieving strong correlation with radiologist judgments and ~280× faster inference than LLM-based methods." />
+  <!-- TODO: Same as social preview image above -->
+  <meta name="twitter:image" content="https://gihuncho.github.io/crepe/static/images/overview_new.png" />
+  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview" />
 
-    <!-- Additional SEO -->
-    <meta name="theme-color" content="#2563eb" />
-    <meta name="msapplication-TileColor" content="#2563eb" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title"
+    content="CREPE: Rapid Chest X-ray Report Evaluation by Predicting Multi-category Error Counts" />
+  <meta name="citation_author" content="Cho, Gihun" />
+  <meta name="citation_author" content="Jang, Seunghyun" />
+  <meta name="citation_author" content="Ko, Hanbin" />
+  <meta name="citation_author" content="Baek, Inhyeok" />
+  <meta name="citation_author" content="Park, Chang Min" />
+  <meta name="citation_publication_date" content="2025" />
+  <meta name="citation_conference_title" content="EMNLP 2025" />
+  <meta name="citation_pdf_url" content="https://github.com/gihuncho/crepe/blob/main/EMNLP2025_CREPE.pdf" />
 
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://ajax.googleapis.com" />
-    <link rel="preconnect" href="https://documentcloud.adobe.com" />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#18417E" />
+  <meta name="msapplication-TileColor" content="#18417E" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
-    <title>
-      CREPE: Rapid Chest X-ray Report Evaluation by Predicting Multi-category
-      Error Counts - Cho, Jang, Ko, Baek, Park | Academic Research
-    </title>
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://ajax.googleapis.com" />
+  <link rel="preconnect" href="https://documentcloud.adobe.com" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 
-    <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico" />
-    <link rel="apple-touch-icon" href="static/images/favicon.ico" />
+  <title>
+    CREPE: Rapid Chest X-ray Report Evaluation by Predicting Multi-category Error Counts
+  </title>
 
-    <!-- Critical CSS - Load synchronously -->
-    <link rel="stylesheet" href="static/css/bulma.min.css" />
-    <link rel="stylesheet" href="static/css/index.css" />
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="static/images/favicon.ico" />
 
-    <!-- Non-critical CSS - Load asynchronously -->
-    <link
-      rel="preload"
-      href="static/css/bulma-carousel.min.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <link
-      rel="preload"
-      href="static/css/bulma-slider.min.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <link
-      rel="preload"
-      href="static/css/fontawesome.all.min.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <link
-      rel="preload"
-      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css" />
+  <link rel="stylesheet" href="static/css/index.css" />
 
-    <!-- Fallback for browsers that don't support preload -->
-    <noscript>
-      <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
-      <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
-      <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
-      />
-    </noscript>
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
 
-    <!-- Fonts - Optimized loading -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+  </noscript>
 
-    <!-- Defer non-critical JavaScript -->
-    <script
-      defer
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    ></script>
-    <script
-      defer
-      src="https://documentcloud.adobe.com/view-sdk/main.js"
-    ></script>
-    <script defer src="static/js/fontawesome.all.min.js"></script>
-    <script defer src="static/js/bulma-carousel.min.js"></script>
-    <script defer src="static/js/bulma-slider.min.js"></script>
-    <script defer src="static/js/index.js"></script>
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <!-- Structured Data for Academic Papers -->
-    <script type="application/ld+json">
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ScholarlyArticle",
@@ -264,8 +201,8 @@
       }
     </script>
 
-    <!-- Website/Organization Structured Data -->
-    <script type="application/ld+json">
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
@@ -279,249 +216,320 @@
         ]
       }
     </script>
-  </head>
+</head>
 
-  <body>
-    <!-- Scroll to Top Button -->
-    <button
-      class="scroll-to-top"
-      onclick="scrollToTop()"
-      title="Scroll to top"
-      aria-label="Scroll to top"
-    >
-      <i class="fas fa-chevron-up"></i>
-    </button>
+<body>
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
 
-    <main id="main-content">
-      <section class="hero">
-        <div class="hero-body">
-          <div class="container is-max-desktop">
-            <div class="columns is-centered">
-              <div class="column has-text-centered">
-                <h1 class="title is-1 publication-title">
-                  CREPE: Rapid Chest X-ray Report Evaluation by Predicting
-                  Multi-category Error Counts
-                </h1>
-                <div class="is-size-5 publication-authors">
-                  <span class="author-block"><b>Gihun Cho</b></span
-                  >, <span class="author-block">Seunghyun Jang</span>,
-                  <span class="author-block">Hanbin Ko</span>,
-                  <span class="author-block">Inhyeok Baek</span>,
-                  <span class="author-block">Chang Min Park</span>
-                </div>
-
-                <div class="is-size-5 publication-authors">
-                  <span class="author-block">
-                    Seoul National University; Innovative Radiology AI
-                    Laboratory (iRAIL)
-                    <br />EMNLP 2025</span
-                  >
-                </div>
-
-                <div class="column has-text-centered">
-                  <div class="publication-links">
-                    <!-- Paper PDF -->
-                    <span class="link-block">
-                      <a
-                        href="static/pdfs/EMNLP2025_CREPE.pdf"
-                        target="_blank"
-                        class="external-link button is-normal is-rounded is-dark"
-                      >
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- Code repository (update when available) -->
-                    <span class="link-block">
-                      <a
-                        href="https://github.com/gihuncho/crepe"
-                        target="_blank"
-                        class="external-link button is-normal is-rounded is-dark"
-                      >
-                        <span class="icon">
-                          <i class="fab fa-github"></i>
-                        </span>
-                        <span>Code</span>
-                      </a>
-                    </span>
-
-                    <span class="link-block">
-                      <a
-                        href="https://huggingface.co/gihuncho/crepe-biomedbert"
-                        target="_blank"
-                        class="external-link button is-normal is-rounded is-dark"
-                      >
-                        <span class="icon">
-                          <i class="fas fa-layer-group"></i>
-                        </span>
-                        <span>Model</span>
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Paper abstract -->
-      <section class="section hero is-light">
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-body">
         <div class="container is-max-desktop">
-          <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-              <h2 class="title is-3">Abstract</h2>
-              <div class="content has-text-justified">
-                <p>
-                  We introduce <b>CREPE</b> (Rapid <b>C</b>hest X-ray
-                  <b>R</b>eport <b>E</b>valuation by <b>P</b>redicting
-                  Multi-category <b>E</b>rror Counts), a rapid, interpretable,
-                  and clinically grounded metric for automated chest X-ray
-                  report generation. CREPE uses a domain-specific BERT model
-                  fine-tuned with a multi-head regression architecture to
-                  predict error counts across six clinically meaningful
-                  categories. Trained on a large-scale synthetic dataset of
-                  32,000 annotated report pairs, CREPE demonstrates strong
-                  generalization and interpretability. On the expert-annotated
-                  ReXVal dataset, CREPE achieves a Kendall's τ correlation of
-                  0.786 with radiologist error counts, outperforming traditional
-                  and recent metrics. CREPE achieves these results with an
-                  inference speed approximately 280 times faster than large
-                  language model (LLM)-based approaches, enabling rapid and
-                  fine-grained evaluation for scalable development of chest
-                  X-ray report generation models.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End paper abstract -->
-
-      <!-- Image carousel -->
-      <section class="hero is-small">
-        <div class="hero-body">
-          <div class="container">
-            <div id="results-carousel" class="carousel results-carousel">
-              <div class="item">
-                <img
-                  src="static/images/overview_new.png"
-                  alt="Overview of CREPE and comparative performance"
-                  loading="lazy"
-                />
-                <h2 class="subtitle has-text-centered">
-                  Overview of CREPE and comparative performance across datasets.
-                </h2>
-              </div>
-              <div class="item">
-                <img
-                  src="static/images/arch_overall.png"
-                  alt="CREPE model architecture"
-                  loading="lazy"
-                />
-                <h2 class="subtitle has-text-centered">
-                  CREPE model architecture with regression and presence heads.
-                </h2>
-              </div>
-              <div class="item">
-                <img
-                  src="static/images/arch_errcnt.png"
-                  alt="Prediction heads architecture"
-                  loading="lazy"
-                />
-                <h2 class="subtitle has-text-centered">
-                  Prediction heads: category-wise error counts and auxiliary
-                  presence.
-                </h2>
-              </div>
-              <div class="item">
-                <img
-                  src="static/images/tau_ci_all.png"
-                  alt="Kendall's tau across datasets with 95% CI"
-                  loading="lazy"
-                />
-                <h2 class="subtitle has-text-centered">
-                  Kendall's τ across datasets with 95% confidence intervals.
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End image carousel -->
-
-      <!-- Paper poster -->
-      <section class="hero is-small is-light">
-        <div class="hero-body">
-          <div class="container">
-            <h2 class="title">Poster</h2>
-            TBA
-          </div>
-        </div>
-      </section>
-      <!--End paper poster -->
-
-      <!--BibTex citation -->
-      <section class="section" id="BibTeX">
-        <div class="container is-max-desktop content">
-          <div class="bibtex-header">
-            <h2 class="title">BibTeX</h2>
-            <button
-              class="copy-bibtex-btn"
-              onclick="copyBibTeX()"
-              title="Copy BibTeX to clipboard"
-            >
-              <i class="fas fa-copy"></i>
-              <span class="copy-text">Copy</span>
-            </button>
-          </div>
-          <pre id="bibtex-code"><code>TBA</code></pre>
-        </div>
-      </section>
-      <!--End BibTex citation -->
-
-      <footer class="footer">
-        <div class="container">
           <div class="columns is-centered">
-            <div class="column is-8">
-              <div class="content">
-                <p>
-                  This page was built using the
-                  <a
-                    href="https://github.com/eliahuhorwitz/Academic-project-page-template"
-                    target="_blank"
-                    >Academic Project Page Template</a
-                  >
-                  which was adopted from the <a
-                    href="https://nerfies.github.io"
-                    target="_blank"
-                    >Nerfies</a
-                  > project page. You are free to borrow the source code of this
-                  website, we just ask that you link back to this page in the
-                  footer. <br />
-                  This website is licensed under a
-                  <a
-                    rel="license"
-                    href="http://creativecommons.org/licenses/by-sa/4.0/"
-                    target="_blank"
-                    >Creative Commons Attribution-ShareAlike 4.0 International
-                    License</a
-                  >.
-                </p>
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                <img src=static/images/crepe_logo.png alt="CREPE" style="height: 2em; margin-bottom: 0.3em;"><br />
+                CREPE: Rapid Chest X-ray Report Evaluation by Predicting Multi-category Error Counts
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://gihuncho.github.io/" target="_blank"><b>Gihun Cho</b></a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://www.linkedin.com/in/seunghyun-jang-971b742a0/" target="_blank">Seunghyun Jang</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://www.linkedin.com/in/lukeingawesome1994/" target="_blank">Hanbin Ko</a>,
+                </span>
+                <span class="author-block">
+                  <a href="mailto:bih1122@snu.ac.kr" target="_blank">Inhyeok Baek</a>,
+                </span>
+                <span class="author-block">
+                  <a href="http://irail.snu.ac.kr/#/members/director" target="_blank">Chang Min Park</a>
+                </span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  Seoul National University; Seoul National University Hospital
+                  <br>
+                  <a href="http://irail.snu.ac.kr/" target="_blank">
+                    Innovative Radiology AI Laboratory
+                    <img src="static/images/iRAIL Color Logo.svg" alt="iRAIL logo"
+                      style="height: 1.2em; vertical-align: text-bottom; margin-left: 0.3em;">
+                  </a>
+                </span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <b>EMNLP 2025 (Main)</b>
+                </span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- Paper PDF -->
+                  <span class="link-block">
+                    <a href="static/pdfs/EMNLP2025_CREPE.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+
+                  <!-- Code repository (update when available) -->
+                  <span class="link-block">
+                    <a href="https://github.com/gihuncho/crepe" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+
+                  <span class="link-block">
+                    <a href="https://huggingface.co/gihuncho/crepe-biomedbert" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-layer-group"></i>
+                      </span>
+                      <span>Model</span>
+                    </a>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </footer>
-    </main>
+      </div>
+    </section>
 
-    <!-- Statcounter tracking code -->
+    <section class="section hero is-small">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full">
+            <!-- <h2 class="title is-3">TL;DR</h2> -->
+            <p>
+              <img src="static/images/overview_new.png" alt="CREPE Overview" class="blend-img-background center-image"
+                style="max-width: 100%; height: auto; margin-bottom: 30px;" loading="lazy" />
+            </p>
+            <p>
+              <b>CREPE</b> is a lightweight, clinically-aware metric for automatic
+              chest X-ray report evaluation. It predicts continuous error counts
+              across six radiology-relevant categories using a BiomedBERT encoder
+              with multi-head regression, then sums them into a single score.
+              Trained on 32k synthetic, rigorously governed report pairs and validated
+              on multiple expert-annotated benchmarks, CREPE aligns strongly with
+              radiologists on ReXVal (Kendall's τ = 0.786) while running in ~9.5 ms
+              per pair—about 280× faster than LLM-based evaluators.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+    <!-- Paper abstract -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                We introduce <b>CREPE</b> (Rapid <b>C</b>hest X-ray
+                <b>R</b>eport <b>E</b>valuation by <b>P</b>redicting
+                Multi-category <b>E</b>rror Counts), a rapid, interpretable,
+                and clinically grounded metric for automated chest X-ray
+                report generation. CREPE uses a domain-specific BERT model
+                fine-tuned with a multi-head regression architecture to
+                predict error counts across six clinically meaningful
+                categories. Trained on a large-scale synthetic dataset of
+                32,000 annotated report pairs, CREPE demonstrates strong
+                generalization and interpretability. On the expert-annotated
+                ReXVal dataset, CREPE achieves a Kendall's τ correlation of
+                0.786 with radiologist error counts, outperforming traditional
+                and recent metrics. CREPE achieves these results with an
+                inference speed approximately 280 times faster than large
+                language model (LLM)-based approaches, enabling rapid and
+                fine-grained evaluation for scalable development of chest
+                X-ray report generation models.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End paper abstract -->
 
-    <!-- End of Statcounter Code -->
-  </body>
+    <section class="section hero is-small">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full">
+            <h2 class="title is-3 has-text-centered">Dual-head model architecture</h2>
+            <p>
+              <img src="static/images/crepe_arch.png" alt="CREPE architecture" class="blend-img-background center-image"
+                style="max-width: 100%; height: auto; margin-bottom: 30px;" loading="lazy" />
+            </p>
+            <p>
+              Given a reference and candidate report, CREPE concatenates them and
+              encodes the pair with
+              <a href="https://huggingface.co/microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract"
+                target="_blank"><b>BiomedBERT</b></a>.
+              Six category-specific regression
+              heads estimate continuous error counts for: (A) false finding, (B) omission,
+              (C) wrong location, (D) wrong severity, (E) unmentioned comparison, and
+              (F) missing comparison. During training, auxiliary presence heads help
+              handle class imbalance. At inference, the sum of predicted counts is the
+              CREPE score (lower is better), and the per-category vector provides an
+              interpretable error profile.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section hero is-small is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full">
+            <h2 class="title is-3 has-text-centered">Synthetic Report Error Dataset</h2>
+            <p>
+              <img src="static/images/crepe_data_gen.png" alt="CREPE synthetic report error dataset generation"
+                class="blend-img-background center-image"
+                style="max-width: 80%; height: auto; margin-bottom: 30px; display: block; margin-left: auto; margin-right: auto;"
+                loading="lazy" />
+            </p>
+            <p>
+              To train the CREPE model, we constructed a large-scale synthetic dataset
+              using the MIMIC-CXR dataset. Each sample includes a reference image and its
+              corresponding radiologist-written reference report. Using
+              <a href="https://stanford-aimi.github.io/chexagent.html" target="_blank"><b>CheXagent</b></a>,
+              a vision-language foundation model, we generated a candidate report for each image.
+              Then, <b>Gemini 2.5 Pro</b> compared the reference and candidate reports to
+              identify and label error counts across six clinically defined categories (A-F).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section hero is-small">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full">
+            <h2 class="title is-3 has-text-centered">Performance and Human Alignment</h2>
+            <p>
+              <img src="static/images/tau_ci_all.png" alt="CREPE Kendall's τ across datasets with 95% CI"
+                class="blend-img-background center-image" style="max-width: 100%; height: auto; margin-bottom: 30px;"
+                loading="lazy" />
+              <img src="static/images/reglines_rexval.png" alt="CREPE regression lines on ReXVal"
+                class="blend-img-background center-image" style="max-width: 100%; height: auto; margin-bottom: 30px;"
+                loading="lazy" />
+            </p>
+            <p>
+              The figures above show the performance of CREPE compared to existing evaluation
+              metrics across multiple benchmark datasets. The top panel reports Kendall's τ
+              correlation with radiologist error counts, where CREPE consistently ranks highest
+              or near-highest across all datasets, demonstrating strong agreement with expert
+              judgments. The bottom panel visualizes the relationship between each metric's score
+              and the total number of radiologist-identified errors in the ReXVal dataset. As
+              shown, CREPE achieves the strongest monotonic correlation (τ = 0.786, ρ = 0.933)
+              while maintaining rapid inference, confirming its effectiveness as a clinically
+              grounded yet efficient evaluation metric for automated chest X-ray report generation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image carousel -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item">
+              <img src="static/images/table1_overall_correlation.png" alt="CREPE overall performance" loading="lazy" />
+            </div>
+            <div class="item">
+              <img src="static/images/table2_robustness.png" alt="CREPE robustness" loading="lazy" />
+            </div>
+            <div class="item">
+              <img src="static/images/table3_speed.png" alt="CREPE speed" loading="lazy" />
+            </div>
+            <div class="item">
+              <img src="static/images/table4_ablation.png" alt="CREPE ablation" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End image carousel -->
+
+    <!-- Paper poster -->
+    <!-- <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title">Poster</h2>
+          TBA
+        </div>
+      </div>
+    </section> -->
+    <!--End paper poster -->
+
+    <!--BibTex citation -->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2>
+          <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code"><code>TBA</code></pre>
+      </div>
+    </section>
+    <!--End BibTex citation -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This page was built using the
+                <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic
+                  Project Page Template</a>
+                which was adopted from the
+                <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project
+                page. This website is licensed under a
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons
+                  Attribution-ShareAlike 4.0 International
+                  License
+                </a>.
+                Last updated: 2025-10-17.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+</body>
+
 </html>
