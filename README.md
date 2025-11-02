@@ -5,7 +5,7 @@ This repository contains the official Python package for **CREPE** — a fast, i
 <div style='display:flex; gap: 0.25rem; '>
 <a href='https://gihuncho.github.io/crepe/'><img src='https://img.shields.io/badge/Project-URL-magenta'></a>
 <a href='https://huggingface.co/gihuncho/crepe-biomedbert'><img src='https://img.shields.io/badge/Model-HuggingFace-yellow'></a>
-<a href='https://gihuncho.github.io/crepe/static/pdfs/EMNLP2025_CREPE.pdf'><img src='https://img.shields.io/badge/Paper-PDF-blue'></a>
+<a href='https://aclanthology.org/2025.emnlp-main.1102/'><img src='https://img.shields.io/badge/Paper-ACL-blue'></a>
 </div>
 
 ## Overview
@@ -106,5 +106,25 @@ gihuncho@snu.ac.kr
 
 
 ```bibtex
-TBA
+@inproceedings{cho-etal-2025-crepe,
+    title = "{CREPE}: Rapid Chest {X}-ray Report Evaluation by Predicting Multi-category Error Counts",
+    author = "Cho, Gihun  and
+      Jang, Seunghyun  and
+      Ko, Hanbin  and
+      Baek, Inhyeok  and
+      Park, Chang Min",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.emnlp-main.1102/",
+    pages = "21749--21766",
+    ISBN = "979-8-89176-332-6"
+}
+
 ```
